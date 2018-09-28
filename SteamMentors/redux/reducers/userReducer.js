@@ -49,7 +49,8 @@ export default (state = initialState, action) => {
       case USER_LOGOUT:
         return{
           ...state,
-          isLoggedIn: false
+          isLoggedIn: false,
+          isGuest: false
         }
       case GUEST_LOGIN:
         return{

@@ -1,15 +1,13 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import BottomTabNav from '../navigation/BottomTabNav';
-import { createStore, applyMiddleware } from 'redux';
-import { Provider, connect } from 'react-redux';
+import { connect } from 'react-redux';
 import reducer from '../redux/reducers';
 import HomeScreen from './HomeScreen';
 import Login from './Login';
 import Register from './Register';
 import News from './News';
-import thunk from 'redux-thunk'
 import {
   NativeRouter,
   Route,
@@ -17,25 +15,10 @@ import {
 } from 'react-router-native'
 
 
-let middleware = [thunk]
-
-const store = createStore(reducer, applyMiddleware(...middleware));
-
-
 class Main extends React.Component {
-  state = {
-    isLoggedIn: false
-  };
-
-  componentDidMount(){
-    this.props.isLoggedIn ? this.setState({isLoggedIn: true}) : null
-  }
-
 
   render() {
-
       return (
-      <Provider store={store}>
         <NativeRouter>
           <View style={styles.container}>
             {this.props.isLoggedIn || this.props.isGuest ? <BottomTabNav/> : <Switch>
@@ -46,10 +29,7 @@ class Main extends React.Component {
             </Switch>}
           </View>
         </NativeRouter>
-      </Provider>
-
       );
-
   }
 }
 

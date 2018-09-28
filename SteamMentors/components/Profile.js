@@ -11,7 +11,6 @@ import { userLogout } from '../redux/actions/userActions'
 import { fetchUserGames } from '../redux/actions/profileActions'
 
  class Profile extends React.Component {
-
    // componentDidMount(){
    //   this.props.fetchUserGames()
    // }
@@ -21,10 +20,12 @@ import { fetchUserGames } from '../redux/actions/profileActions'
    }
 
   handleLogout = () => {
-  this.props.userLogout()
+    console.log("loggout", this.props);
+  this.props.userLogout(this.props.history)
   }
   render(){
-    console.log("props in profile", this.props.currentUser);
+    let {history} = this.props
+
 
 
     return (

@@ -27,31 +27,29 @@ class Login extends React.Component {
     let {history} = this.props
     return (
       <View style={{height:"100%", backgroundColor: "#11162a", display: "flex", flexDirection: "column"}}>
-      <View>
-      <Text> Logo </Text>
-      </View>
-      <View style={{marginTop: "40%"}}>
-      <TextInput
-          style={{height: 70}}
-          placeholder="Email"
-          onChangeText={(text) => this.setState({email: text})}
-        />
-      <TextInput
-          style={{height: 70}}
-          placeholder="Password"
-          onChangeText={(text) => this.setState({password: text})}
-        />
-      </View>
-      <View style={{height:"40%", width: "100%", display: "flex", flexDirection: "row", marginTop: "70%"}}>
-      <Button style={styles.button} title="Back" onPress={() => history.push("/")}/>
-      <Button style={styles.button} title="Login" onPress={() => this.handleLogin(this.state)}/>
-      </View>
+        <View>
+          <Text> Logo </Text>
+        </View>
+        <View style={{marginTop: "40%"}}>
+          <TextInput
+              style={{height: 70}}
+              placeholder="Email"
+              onChangeText={(text) => this.setState({email: text})}
+            />
+          <TextInput
+              style={{height: 70}}
+              placeholder="Password"
+              onChangeText={(text) => this.setState({password: text})}
+            />
+        </View>
+        <View style={{height:"40%", width: "100%", display: "flex", flexDirection: "row", marginTop: "70%"}}>
+          <Button style={styles.button} title="Back" onPress={() => history.push("/")}/>
+          <Button style={styles.button} title="Login" onPress={() => this.handleLogin(this.state)}/>
+        </View>
       </View>
     )
   }
-
-
-    }
+  }
 
     const styles = StyleSheet.create({
       button: {
@@ -61,10 +59,14 @@ class Login extends React.Component {
       },
     });
 
-    function mapDispatchToProps(dispatch) {
-      return {
-        userLogin: bindActionCreators(userLogin, dispatch)
-      }
-    }
+    const mapDispatchToProps = dispatch => bindActionCreators({
+        userLogin
+      }, dispatch)
 
-    export default connect(null, mapDispatchToProps)(Login)
+
+    const mapStateToProps = state => ({
+      currentUser: state.users.currentUser,
+      currentUserGames: state.profile.currentUserGames
+    })
+
+    export default connect(mapStateToProps, mapDispatchToProps)(Login)

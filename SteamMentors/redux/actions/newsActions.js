@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { key } from '../../ignore/Key'
 const BASE_URL = 'http://10.2.83.224:8000'
 const random = Math.floor((Math.random() * 100000) + 1)
 

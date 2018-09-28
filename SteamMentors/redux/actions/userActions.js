@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { key } from '../../ignore/Key'
 const BASE_URL = 'http://10.2.83.224:8000'
 
 export const FETCH_USERS = "FETCH_USERS"
@@ -15,11 +14,13 @@ export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED'
 
 
 
-export const userLogout = () => {
+export const userLogout = (history) => {
+  console.log("history in actioncreator", history);
   return dispatch => {
     dispatch({
       type: USER_LOGOUT
     })
+    //history.push("/")
   }
 }
 

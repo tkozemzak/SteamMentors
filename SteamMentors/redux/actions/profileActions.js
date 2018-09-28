@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { key } from '../../ignore/Key'
 const BASE_URL = 'http://10.2.83.224:8000'
 
 export const FETCH_USER_GAMES = "FETCH_USER_GAMES"
