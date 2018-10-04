@@ -2,6 +2,7 @@ const homepage = require("../controllers/homepage.js");
 const login = require("../controllers/login.js");
 const register = require("../controllers/register.js");
 const news = require("../controllers/news.js");
+const profile = require("../controllers/profile.js");
 
 module.exports = function(app) {
 
@@ -13,8 +14,10 @@ app.post('/register', register.register)
   app.post('/login', login.login)
 
 //news
-  app.get("/news", news.news)
-
+  app.get("/news/:id", news.random)
+  app.get("/everything/:id", news.everything)
+//fetchUserGames
+  app.get("/games/:id", profile.games)
 
 }
 

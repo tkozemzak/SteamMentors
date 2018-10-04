@@ -8,13 +8,13 @@ import {
 } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchGameName } from '../redux/actions/newsActions'
-import moment from 'moment'
+//import { fetchNewsPics } from '../redux/actions/newsActions'
 
 
-class NewsCard extends React.Component {
+class GameCard extends React.Component {
 
-componentWillMount(){
+componentDidMount(){
+  //this.props.fetchNewsPics(this.props.appid)
 }
 clickCard = (url) => {
   Linking.openURL(url)
@@ -22,6 +22,7 @@ clickCard = (url) => {
 
 
   render(){
+
     return (
       <TouchableHighlight onPress={() => this.clickCard(this.props.item.url)} style={{borderColor: "red", flex: 1, padding: 30, alignSelf: "center", backgroundColor: "#11162a", maxHeight: 200, marginTop: -1}}>
       <ImageBackground
@@ -34,9 +35,9 @@ clickCard = (url) => {
         }}
         source={{ uri: "https://previews.123rf.com/images/kasto/kasto1702/kasto170200053/72096795-pictur-perfect-tropical-anse-patates-beach-on-la-digue-island-seychelles-summer-vacations-on-picture.jpg" }}
         >
-      <Text style={{color: "white"}}>{this.props.currentNews[2]}</Text>
-      <Text style={{color: "white"}}>{this.props.item.title}</Text>
-      <Text style={{color: "white"}}>Date:{this.props.item.date}</Text>
+      <Text style={{color: "white"}}>Game card</Text>
+      <Text style={{color: "white"}}>{this.props.item.appid}</Text>
+      <Text style={{color: "white"}}>Playtime: {this.props.item.playtime_forever} hrs</Text>
       </ImageBackground>
       </TouchableHighlight>
 
@@ -45,11 +46,10 @@ clickCard = (url) => {
     }
 
     const mapStateToProps = state => ({
-      currentNews: state.news.currentNews
     })
 
     const mapDispatchToProps = dispatch => bindActionCreators({
-      fetchGameName
+
     }, dispatch)
 
-    export default connect(mapStateToProps, mapDispatchToProps)(NewsCard)
+    export default connect(mapStateToProps, mapDispatchToProps)(GameCard)

@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import Search from "../components/Search"
 import News from "../components/News"
 import Profile from "../components/Profile"
+import { connect } from 'react-redux'
 
 
 export default createBottomTabNavigator ({

@@ -1,6 +1,5 @@
 import {
   FETCH_USERS,
-  USER_LOGOUT,
   GUEST_LOGIN,
   USER_LOGIN,
   USER_LOGIN_PENDING,
@@ -43,25 +42,12 @@ export default (state = initialState, action) => {
       return {...state, isLoading: false, isLoggedIn: true, currentUser: {...action.payload}}
     case USER_LOGIN_FAILED:
     console.log("fail");
-
       return {...state, isLoading: false, showLoginError: true}
-
-      case USER_LOGOUT:
-        return{
-          ...state,
-          isLoggedIn: false,
-          isGuest: false
-        }
-      case GUEST_LOGIN:
-        return{
-          ...state,
-          isGuest: true
-        }
-      case USER_LOGIN:
-        return{
-          ...state,
-          curentUser: action.payload
-        }
+    case GUEST_LOGIN:
+      return{
+        ...state,
+        isGuest: true
+      }
 
     default:
       return state;

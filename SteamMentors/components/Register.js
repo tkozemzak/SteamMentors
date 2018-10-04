@@ -28,32 +28,44 @@ class Register extends React.Component {
     let {history} = this.props
     return (
       <View style={{height:"100%", backgroundColor: "#11162a", display: "flex", flexDirection: "column"}}>
-      <View>
-      <Text> Logo </Text>
+      <View style={{alignSelf: "center", marginTop: 50}}>
+      <Image
+      style={styles.logo}
+      source={require('../assets/images/logo.png')}
+    />
       </View>
-      <View style={{marginTop: "40%"}}>
+      <View style={{marginTop: 10}}>
       <TextInput
-          style={{height: 70}}
+          style={styles.textInput}
           placeholder="Email"
+          selectionColor="#58ab7f"
+          underlineColorAndroid="#58ab7f"
           onChangeText={(text) => this.setState({email: text})}
         />
       <TextInput
-          style={{height: 70}}
+          style={styles.textInput}
+          secureTextEntry={true}
           placeholder="Password"
+          selectionColor="#58ab7f"
+          underlineColorAndroid="#58ab7f"
           onChangeText={(text) => this.setState({password: text})}
         />
 
       <TextInput
-          style={{height: 70}}
+          style={styles.textInput}
           placeholder="Steam Profile URL"
+          selectionColor="#58ab7f"
+          underlineColorAndroid="#58ab7f"
           onChangeText={(text) => this.setState({steam_url: text})}
         />
-        <Button style={styles.button} title="Back" onPress={() => history.push("/")}/>
-        <Button style={styles.button} title="Register" onPress={() => this.handleSignup(this.state)}/>
-      </View>
-      <View style={{height:"40%", width: "100%", display: "flex", flexDirection: "row", marginTop: "70%"}}>
-      <Button style={styles.button} title="Back" onPress={() => history.push("/")}/>
-      <Button style={styles.button} title="Login" onPress={() => history.push("/")}/>
+        <View style={{marginTop: 5}}>
+          <View style={styles.button}>
+            <Button color="#58ab7f" title="Back" onPress={() => history.push("/")}/>
+          </View>
+          <View style={styles.button}>
+            <Button color="#58ab7f" title="Register" onPress={() => this.handleSignup(this.state)}/>
+          </View>
+        </View>
       </View>
       </View>
     )
@@ -64,10 +76,26 @@ class Register extends React.Component {
 
     const styles = StyleSheet.create({
       button: {
-        width: "100%",
+        width: "70%",
         alignSelf: "center",
-        marginBottom: 5
+        marginBottom: 15
       },
+      logo: {
+        width: 400,
+        height: 200,
+        resizeMode: "cover"
+      },
+      textInput: {
+        height: 70,
+        color: "white"
+      },
+      buttonContainer: {
+        height:"40%",
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        marginTop: "70%"
+      }
     });
 
 

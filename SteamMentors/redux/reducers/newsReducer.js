@@ -1,24 +1,25 @@
 import {
-  FETCH_NEWS,
-  FETCH_NEWS_PICS
+  FETCH_USER_NEWS,
+  FETCH_RANDOM_NEWS,
+  FETCH_GAME_NAME
 } from '../actions/newsActions'
 
 let initialState = {
-  currentNews: {},
-  newsPics: {}
+  currentNews: [],
+  gameName: ''
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-      case FETCH_NEWS:
+      case FETCH_USER_NEWS:
         return{
           ...state,
           currentNews: {...action.payload}
         }
-      case FETCH_NEWS_PICS:
+      case FETCH_RANDOM_NEWS:
         return{
           ...state,
-          newsPics: {...action.payload}
+          currentNews: action.payload
         }
 
     default:

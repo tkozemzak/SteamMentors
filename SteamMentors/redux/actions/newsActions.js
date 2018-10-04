@@ -1,29 +1,29 @@
 import axios from 'axios'
 const BASE_URL = 'http://10.2.83.224:8000'
-const random = Math.floor((Math.random() * 100000) + 1)
-
-export const FETCH_NEWS = "FETCH_NEWS"
-export const FETCH_NEWS_PICS = "FETCH_NEWS_PICS"
 
 
+export const FETCH_USER_NEWS = "FETCH_USER_NEWS"
+export const FETCH_RANDOM_NEWS = "FETCH_RANDOM_NEWS"
 
-export const fetchNews = () => {
+
+
+export const fetchUserNews = (id) => {
   return dispatch => {
-    axios.get(`${BASE_URL}/news`)
+    axios.get(`${BASE_URL}/everything/${id}`)
       .then(response =>
         dispatch ({
-        type: FETCH_NEWS,
+        type: FETCH_USER_NEWS,
         payload: response.data
       }))
   }
 }
 
-export const fetchNewsPics = (appid) => {
+export const fetchRandomNews = (id) => {
   return dispatch => {
-    axios.get(`http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=440&count=3&maxlength=300&format=json`)
+    axios.get(`${BASE_URL}/news/${id}`)
       .then(response =>
         dispatch ({
-        type: FETCH_NEWS_PICS,
+        type: FETCH_RANDOM_NEWS,
         payload: response.data
       }))
   }
