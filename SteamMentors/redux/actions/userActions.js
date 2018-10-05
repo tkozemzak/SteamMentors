@@ -47,13 +47,14 @@ export const userLogin = (creds, history) => {
         type: USER_LOGIN_FAILED,
         payload: err
       })
-      history.push('/login')
+      history.push('/')
     }
   }
 };
 
 
 export const userSignup = (creds, history) => {
+  console.log(creds);
   return async dispatch => {
     try {
       dispatch({type: USER_SIGNUP_PENDING})
@@ -68,7 +69,7 @@ export const userSignup = (creds, history) => {
         type: USER_SIGNUP_FAILED,
         payload: err
       })
-      history.push('/login')
+      history.push('/')
     }
   }
 };

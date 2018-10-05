@@ -23,8 +23,6 @@ class Main extends React.Component {
           <View style={styles.container}>
             {this.props.isLoggedIn || this.props.isGuest ? <BottomTabNav/> : <Switch>
               <Route exact path="/" component={HomeScreen}/>
-              <Route path="/login" component={Login}/>
-              <Route path="/register" component={Register}/>
               <Route path="/news" component={News}/>
             </Switch>}
           </View>

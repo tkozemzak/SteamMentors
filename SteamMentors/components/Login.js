@@ -27,12 +27,7 @@ class Login extends React.Component {
     let {history} = this.props
     return (
       <View style={{height:"100%", backgroundColor: "#11162a", display: "flex", flexDirection: "column"}}>
-        <View style={{alignSelf: "center", marginTop: 50}}>
-        <Image
-        style={styles.logo}
-        source={require('../assets/images/logo.png')}
-      />
-        </View>
+
         <View>
           <TextInput
               style={styles.textInput}
