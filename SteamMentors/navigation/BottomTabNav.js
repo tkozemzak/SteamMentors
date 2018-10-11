@@ -1,43 +1,68 @@
 import React from 'react'
-import {createBottomTabNavigator} from 'react-navigation';
+import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons'
 import Search from "../components/Search"
+import UserPage from "../components/UserPage"
+import SendMessage from "../components/SendMessage"
 import News from "../components/News"
 import Profile from "../components/Profile"
 import { connect } from 'react-redux'
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
-export default createBottomTabNavigator ({
-  News: {screen: News,
-  navigationOptions:{
-    tabBarLabel: "News",
-    tabBarIcon: ({tintColor}) => (
-      <Icon name="md-planet" size={24}/>
-    )
-  }},
-  Search: {screen: Search,
-  navigationOptions:{
-    tabBarLabel: "Search",
-    tabBarIcon: ({tintColor}) => (
-      <Icon name="md-search" size={24}/>
-    )
-  }},
-  Profile: {screen: Profile,
-  navigationOptions:{
-    tabBarLabel: "Profile",
-    tabBarIcon: ({tintColor}) => (
-      <Icon name="md-person" size={24}/>
-    )
-  }}
-},
- {
-    tabBarOptions: {
-        activeTintColor: '#11162a', // active icon color
-        inactiveTintColor: '#586589',  // inactive icon color
-        style: {
-            backgroundColor: '#58AB7F', // TabBar background
 
+const SearchStack = createStackNavigator({
+  Search: {
+    screen: Search,
+  navigationOptions: () => ({
+      title: `Search`,
+      header: null
+    }),
+  },
+  UserPage: {
+    screen: UserPage,
+  navigationOptions: () => ({
+      title: `UserPage`,
+    }),
+  },
+  SendMessage: {
+    screen: SendMessage,
+  navigationOptions: () => ({
+      title: `SendMessage`,
+    }),
+  },
+});
+
+export default createBottomTabNavigator(
+  {
+    News: News,
+    Search: SearchStack,
+    Profile: Profile,
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, horizontal, tintColor }) => {
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === 'News') {
+          iconName = `md-planet`;
+        } else if (routeName === 'Search') {
+          iconName = `md-search`;
+
+        } else  {
+          iconName = `md-person`;
         }
-    }
+
+        return <Ionicons name={iconName} size={horizontal ? 20 : 25} color={tintColor} />;
+      },
+    }),
+    tabBarOptions: {
+      activeTintColor: '#3098C8',
+      inactiveTintColor: 'white',
+      style: {
+                  backgroundColor: '#58AB7F', // TabBar background
+
+              }
+    },
   }
-)
+);

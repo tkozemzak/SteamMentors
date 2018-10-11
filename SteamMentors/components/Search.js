@@ -33,7 +33,7 @@ class Search extends React.Component {
   render(){
 
     return (
-      <View>
+      <View style={{backgroundColor: "#11162a", height: "100%"}}>
       { this.props.isGuest ?
 <View style={{padding: 10}}>
 <TextInput
@@ -49,6 +49,7 @@ class Search extends React.Component {
   />
   <View style={styles.button}>
     <Button color="#58ab7f" title="Search" onPress={() => this.handleSearch()}/>
+    <Button color="#58ab7f" title="touserpage" onPress={() => this.props.navigation.navigate("UserPage")}/>
   </View>
       </View>
       :
