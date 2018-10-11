@@ -4,6 +4,7 @@ const key = "38E1B1D59915F46DC70BC35EB85EA54B"
 
 module.exports = {
   searchUsers: function(req, res) {
+    console.log("req.body", req.body);
     knex("user").where("steam_name", "like", `%${req.body.searchInput}%`).then((results)=>{
       let promiseArr = []
       for(let i=0; i<results.length; i++){
@@ -14,7 +15,7 @@ module.exports = {
         for(let j=0; j<results.length; j++){
           finalArr.push(results[j].data.response.players)
         }
-        res.json(finalArr)
+        res.send(finalArr)
       })
     })
   }

@@ -23,7 +23,7 @@ clickCard = (url) => {
 
   render(){
     return (
-      <TouchableHighlight onPress={() => this.clickCard(this.props.item.url)} style={{borderColor: "red", flex: 1, padding: 30, alignSelf: "center", backgroundColor: "#11162a", maxHeight: 200, marginTop: -1}}>
+      <TouchableHighlight onPress={() => this.clickCard(this.props.item.url)} style={{ flex: 1, padding: 30, alignSelf: "center", backgroundColor: "#11162a", maxHeight: 200, marginTop: -1}}>
       <ImageBackground
       style={{
           backgroundColor: '#ccc',

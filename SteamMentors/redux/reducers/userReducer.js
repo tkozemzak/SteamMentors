@@ -13,7 +13,7 @@ import {
 let initialState = {
   currentUser: {},
   isLoggedIn: false,
-  isGuest: true,
+  isGuest: false,
   isLoading: false,
   showLoginError: false,
   showSignupError: false
