@@ -1,6 +1,7 @@
 import {
   FETCH_USERS,
   GUEST_LOGIN,
+  USER_LOGOUT,
   USER_LOGIN,
   USER_LOGIN_PENDING,
   USER_LOGIN_SUCCESS,
@@ -13,7 +14,7 @@ import {
 let initialState = {
   currentUser: {},
   isLoggedIn: false,
-  isGuest: false,
+  isGuest: true,
   isLoading: false,
   showLoginError: false,
   showSignupError: false
@@ -47,6 +48,10 @@ export default (state = initialState, action) => {
       return{
         ...state,
         isGuest: true
+      }
+    case USER_LOGOUT:
+      return{
+        state: initialState
       }
 
     default:

@@ -7,6 +7,7 @@ export const FETCH_GAME_INFO = "FETCH_GAME_INFO"
 
 
 export const fetchUserGames = (id) => {
+  //console.log('id in actioncreator', id);
   return dispatch => {
     axios.get(`${BASE_URL}/games/${id}`)
       .then(response =>

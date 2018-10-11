@@ -10,10 +10,12 @@ let initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+
       case FETCH_USER_GAMES:
+      //console.log('action.payload', action.payload);
         return{
           ...state,
-          currentUserGames: [...action.payload]
+          currentUserGames: action.payload
         }
       case FETCH_GAME_INFO:
         return{

@@ -23,6 +23,7 @@ const SearchStack = createStackNavigator({
     screen: UserPage,
   navigationOptions: () => ({
       title: `UserPage`,
+      header: null
     }),
   },
   SendMessage: {

@@ -26,7 +26,7 @@ class Login extends React.Component {
   render(){
     let {history} = this.props
     return (
-      <View style={{height:"100%", backgroundColor: "#11162a", display: "flex", flexDirection: "column"}}>
+      <View style={{height:"100%", backgroundColor: "transparent", display: "flex", flexDirection: "column"}}>
 
         <View>
           <TextInput
@@ -45,7 +45,7 @@ class Login extends React.Component {
               onChangeText={(text) => this.setState({password: text})}
             />
         </View>
-        <View style={{marginTop: 5}}>
+        <View style={{marginTop: 50}}>
           <View style={styles.button}>
             <Button color="#58ab7f" title="Back" onPress={() => history.push("/")}/>
           </View>

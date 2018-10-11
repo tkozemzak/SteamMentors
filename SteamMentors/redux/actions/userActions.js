@@ -14,7 +14,7 @@ export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED'
 
 
 
-export const userLogout = (history) => {
+export const userLogout = () => {
   return dispatch => {
     dispatch({
       type: USER_LOGOUT

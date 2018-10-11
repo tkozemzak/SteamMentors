@@ -1,6 +1,6 @@
 const knex = require("../db/knex.js");
 const axios = require("axios")
-const key = "38E1B1D59915F46DC70BC35EB85EA54B"
+const key = require('../ignore/Key')
 
 module.exports = {
 

@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import {fetchUserGames} from '../../redux/actions/profileActions'
 
 
 class SearchCard extends React.Component {
@@ -41,11 +42,11 @@ let steamid = this.props.item.steamid
     }
 
     const mapStateToProps = state => ({
-
+      currentUserGames: state.profile.currentUserGames
     })
 
     const mapDispatchToProps = dispatch => bindActionCreators({
-
+      fetchUserGames
     }, dispatch)
 
     export default connect(mapStateToProps, mapDispatchToProps)(SearchCard)

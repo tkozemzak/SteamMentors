@@ -7,7 +7,8 @@ import {
   View,
   Button,
   Image,
-  StyleSheet
+  StyleSheet,
+  ImageBackground
 } from 'react-native'
 import { connect } from "react-redux"
 import { userLogout } from '../../redux/actions/userActions'
@@ -24,21 +25,22 @@ import { withRouter } from 'react-router-native'
    }
 
   handleLogout = () => {
-    this.props.userLogout(this.history)
+    this.props.userLogout()
   }
   render(){
 
     let {history} = this.props
 
     return (
-      <View>
+      <ImageBackground
+      style={{
+          width: "100%",
+          height: "100%",
+        }}
+        source={require("../../assets/images/gradient.jpeg")}
+      >
       { this.props.isGuest ? <View>
-      <View style={{alignSelf: "center", marginTop: 50, marginBottom: 50}}>
-      <Image
-      style={styles.logo}
-      source={require('../../assets/images/logo.png')}
-    />
-      </View>
+
       <Text style={{color: "white", alignSelf: "center"}}>
       Please login or register to view this page
       </Text>
@@ -47,12 +49,13 @@ import { withRouter } from 'react-router-native'
       </View>
       </View> :
       <View style={{marginTop: 18, paddingBottom: 80}}>
-        <Header backgroundColor={"#11162a"}
+        <Header backgroundColor={"transparent"}
+          leftComponent={{image: `${this.props.currentUser.data.avatar}`, style: {width: 50, height: 50}}}
           centerComponent={{ text: `${this.props.currentUser.data.steam_name}`, style: {color: "white", fontSize: 30}}}
           rightComponent={<Button color="#58ab7f" title="Logout" onPress={()=> this.handleLogout()}/>}
         />
-          <ScrollView style={{ backgroundColor: "#11162a", marginBottom: 100}}>
-            <List containerStyle={{marginBottom: 20}}>
+          <ScrollView >
+            <List >
               {this.props.currentUserGames ? this.props.currentUserGames.map((l) => (
                 <GameCard
                 key={l.appid}
@@ -64,7 +67,7 @@ import { withRouter } from 'react-router-native'
           </ScrollView>
       </View>
     }
-      </View>
+    </ImageBackground>
     )
   }
     }

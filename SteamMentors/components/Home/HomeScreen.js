@@ -18,8 +18,6 @@ import { guestLogin } from '../../redux/actions/userActions'
 import { LinearGradient, Constants } from 'expo'
 import { ListItem, Icon } from 'react-native-elements'
 import {userSignup, userLogin} from '../../redux/actions/userActions'
-import Register from './Register'
-import Login from './Login'
 
 
 class HomeScreen extends React.Component {
@@ -50,6 +48,7 @@ class HomeScreen extends React.Component {
   handleGuestLogin = () => {
   this.props.guestLogin()
   }
+
   spinValue = new Animated.Value(0);
 
 
@@ -73,10 +72,7 @@ class HomeScreen extends React.Component {
     };
 
     componentDidMount(){
-      this.spinValue.interpolate({
-            inputRange: [0, 1],
-            outputRange: ['0deg', '360deg'],
-          });
+      this.spin()
     }
 
   render(){
@@ -94,23 +90,24 @@ class HomeScreen extends React.Component {
         style={{height: '100%'}}>
 
             <View style={{alignSelf: "center", marginTop: 60, marginLeft: 20, marginRight: 20}}>
-            <TouchableOpacity style={{alignSelf: "center"}} onPress={this.spin}>
+            <View style={{alignSelf: "center"}} >
                     <Animated.View
                       style={{
                         transform: [{ rotate: spin }],
                         position: 'relative',
-                        height: 100,
-                        width: 100,
+                        height: 80,
+                        width: 80,
                       }}>
                       <Image
-                      style={{width: 100, height: 100}}
+                      style={{width: 80, height: 80}}
                       source={require('../../assets/images/spinnerLogo.png')}
                     />
                     </Animated.View>
-              </TouchableOpacity>
-              <View style={{alignSelf: "center", marginTop: 30, width: "90%"}}>
+              </View>
+              <View style={{marginTop: 10, width: "90%"}}>
 
-              <Text>Steam Mentors</Text>
+              <Text style={{fontSize: 34, color: "#3098C8", alignSelf: "center"}}>Steam Mentors</Text>
+
             </View>
 
             </View>
@@ -146,7 +143,7 @@ class HomeScreen extends React.Component {
                     onChangeText={(text) => this.setState({ login: { ...this.state.login, password: text}})}
                   />
               </View>
-              <View style={{marginTop: 5}}>
+              <View style={{marginTop: 61.5}}>
                 <View style={styles.button}>
                   <Button color="#58ab7f" title="Back" onPress={() => this.setState({screen: "home"})}/>
                 </View>
@@ -182,7 +179,7 @@ class HomeScreen extends React.Component {
                 underlineColorAndroid="#58ab7f"
                 onChangeText={(text) => this.setState({ register: { ...this.state.register, steam_url: text}})}
               />
-              <View style={{marginTop: 5}}>
+              <View style={{marginTop: -8.5}}>
                 <View style={styles.button}>
                   <Button color="#58ab7f" title="Back" onPress={() => this.setState({screen: "home"})}/>
                 </View>

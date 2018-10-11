@@ -4,7 +4,8 @@ import {
   View,
   ImageBackground,
   TouchableHighlight,
-  Linking
+  Linking,
+  StyleSheet
 } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -23,26 +24,44 @@ clickCard = (url) => {
 
   render(){
     return (
-      <TouchableHighlight onPress={() => this.clickCard(this.props.item.url)} style={{ flex: 1, padding: 30, alignSelf: "center", backgroundColor: "#11162a", maxHeight: 200, marginTop: -1}}>
+      <TouchableHighlight onPress={() => this.clickCard(this.props.item.url)} style={styles.TouchableHighlight}>
       <ImageBackground
-      style={{
-          backgroundColor: '#ccc',
-          flex: 1,
-          width: 300,
-          height: "100%",
-          justifyContent: 'center',
-        }}
-        source={{ uri: "https://previews.123rf.com/images/kasto/kasto1702/kasto170200053/72096795-pictur-perfect-tropical-anse-patates-beach-on-la-digue-island-seychelles-summer-vacations-on-picture.jpg" }}
+      style={styles.cardImage}
+        source={{ uri: `https://steamcdn-a.akamaihd.net/steam/apps/${this.props.item.appid}/header.jpg?t=1539261069` }}
         >
-      <Text style={{color: "white"}}>{this.props.currentNews[2]}</Text>
-      <Text style={{color: "white"}}>{this.props.item.title}</Text>
-      <Text style={{color: "white"}}>Date:{this.props.item.date}</Text>
+        <View style={{padding: 10}}>
+      <Text style={styles.text}>{this.props.item.title}</Text>
+      <Text style={styles.text}>Date:{this.props.item.date}</Text>
+      </View>
       </ImageBackground>
       </TouchableHighlight>
 
     )
   }
     }
+
+    const styles = StyleSheet.create({
+
+      text: {
+        fontSize: 20,
+        color: "white"
+
+      },
+      TouchableHighlight: {
+        flex: 1,
+        alignSelf: "center",
+        height: 150,
+        backgroundColor: "transparent",
+        marginBottom: 15,
+      },
+      cardImage: {
+        flex: 1,
+        width: 300,
+        height: "100%",
+        justifyContent: 'flex-start'
+        }
+    });
+
 
     const mapStateToProps = state => ({
       currentNews: state.news.currentNews
