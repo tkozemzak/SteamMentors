@@ -11,7 +11,6 @@ export const USER_LOGIN_FAILED = 'USER_LOGIN_FAILED'
 export const USER_SIGNUP_PENDING = 'USER_SIGNUP_PENDING'
 export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS'
 export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED'
-export const SEARCH_USERS = 'SEARCH_USERS'
 
 
 
@@ -73,7 +72,3 @@ export const userSignup = (creds, history) => {
     }
   }
 };
-
-export const searchUsers = (searchInput) => {
-  console.log("searchusers==============", searchInput);
-}

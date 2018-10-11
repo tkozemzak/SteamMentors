@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from "react-redux"
-import {userSignup} from '../redux/actions/userActions'
+import {userSignup} from '../../redux/actions/userActions'
 
 
 class Register extends React.Component {
@@ -28,7 +28,7 @@ class Register extends React.Component {
     let {history} = this.props
     return (
       <View style={{height:"100%", backgroundColor: "#11162a", display: "flex", flexDirection: "column"}}>
-    
+
       <View style={{marginTop: 10}}>
       <TextInput
           style={styles.textInput}

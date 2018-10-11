@@ -14,10 +14,10 @@ import {
   ImageBackground
 } from 'react-native'
 import { connect } from "react-redux"
-import { guestLogin } from '../redux/actions/userActions'
+import { guestLogin } from '../../redux/actions/userActions'
 import { LinearGradient, Constants } from 'expo'
 import { ListItem, Icon } from 'react-native-elements'
-import {userSignup, userLogin} from '../redux/actions/userActions'
+import {userSignup, userLogin} from '../../redux/actions/userActions'
 import Register from './Register'
 import Login from './Login'
 
@@ -90,7 +90,7 @@ class HomeScreen extends React.Component {
 
     return (
         <ImageBackground
-        source={require('../assets/images/gradient.jpeg')}
+        source={require('../../assets/images/gradient.jpeg')}
         style={{height: '100%'}}>
 
             <View style={{alignSelf: "center", marginTop: 60, marginLeft: 20, marginRight: 20}}>
@@ -104,7 +104,7 @@ class HomeScreen extends React.Component {
                       }}>
                       <Image
                       style={{width: 100, height: 100}}
-                      source={require('../assets/images/spinnerLogo.png')}
+                      source={require('../../assets/images/spinnerLogo.png')}
                     />
                     </Animated.View>
               </TouchableOpacity>

@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
-import { userLogin } from "../redux/actions/userActions"
+import { userLogin } from "../../redux/actions/userActions"
 
 
 class Login extends React.Component {

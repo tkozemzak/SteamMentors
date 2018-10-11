@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchGameName } from '../redux/actions/newsActions'
+import { fetchGameName } from '../../redux/actions/newsActions'
 import moment from 'moment'
 
 

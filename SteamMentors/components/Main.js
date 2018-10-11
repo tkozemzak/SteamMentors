@@ -4,10 +4,10 @@ import { AppLoading, Asset, Font, Icon } from 'expo';
 import BottomTabNav from '../navigation/BottomTabNav';
 import { connect } from 'react-redux';
 import reducer from '../redux/reducers';
-import HomeScreen from './HomeScreen';
-import Login from './Login';
-import Register from './Register';
-import News from './News';
+import HomeScreen from './Home/HomeScreen';
+import Login from './Home/Login';
+import Register from './Home/Register';
+import News from './News/News';
 import {
   NativeRouter,
   Route,

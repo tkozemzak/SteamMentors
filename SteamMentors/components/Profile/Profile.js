@@ -10,8 +10,8 @@ import {
   StyleSheet
 } from 'react-native'
 import { connect } from "react-redux"
-import { userLogout } from '../redux/actions/userActions'
-import { fetchUserGames } from '../redux/actions/profileActions'
+import { userLogout } from '../../redux/actions/userActions'
+import { fetchUserGames } from '../../redux/actions/profileActions'
 import GameCard from "./GameCard"
 import { List, Header } from 'react-native-elements'
 import { withRouter } from 'react-router-native'
@@ -36,7 +36,7 @@ import { withRouter } from 'react-router-native'
       <View style={{alignSelf: "center", marginTop: 50, marginBottom: 50}}>
       <Image
       style={styles.logo}
-      source={require('../assets/images/logo.png')}
+      source={require('../../assets/images/logo.png')}
     />
       </View>
       <Text style={{color: "white", alignSelf: "center"}}>

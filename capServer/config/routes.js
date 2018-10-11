@@ -3,6 +3,7 @@ const login = require("../controllers/login.js");
 const register = require("../controllers/register.js");
 const news = require("../controllers/news.js");
 const profile = require("../controllers/profile.js");
+const search = require("../controllers/search.js");
 
 module.exports = function(app) {
 
@@ -18,6 +19,9 @@ app.post('/register', register.register)
   app.get("/everything/:id", news.everything)
 //fetchUserGames
   app.get("/games/:id", profile.games)
+
+  //search
+  app.post("/search", search.searchUsers)
 
 }
 

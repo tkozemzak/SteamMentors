@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { fetchRandomNews, fetchUserNews } from "../redux/actions/newsActions"
+import { fetchRandomNews, fetchUserNews } from "../../redux/actions/newsActions"
 import NewsCard from "./NewsCard"
 import { List, Header } from 'react-native-elements'
 

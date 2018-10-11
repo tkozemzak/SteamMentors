@@ -1,11 +1,11 @@
 import React from 'react'
 import {createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons'
-import Search from "../components/Search"
-import UserPage from "../components/UserPage"
-import SendMessage from "../components/SendMessage"
-import News from "../components/News"
-import Profile from "../components/Profile"
+import Search from "../components/Search/Search"
+import UserPage from "../components/Search/UserPage"
+import SendMessage from "../components/Search/SendMessage"
+import News from "../components/News/News"
+import Profile from "../components/Profile/Profile"
 import { connect } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -60,7 +60,7 @@ export default createBottomTabNavigator(
       activeTintColor: '#3098C8',
       inactiveTintColor: 'white',
       style: {
-                  backgroundColor: '#58AB7F', // TabBar background
+                  backgroundColor: '#58AB7F',
 
               }
     },

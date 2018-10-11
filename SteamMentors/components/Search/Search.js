@@ -8,10 +8,11 @@ import {
   ScrollView,
   StyleSheet
 } from 'react-native'
-import { userLogout, searchUsers } from '../redux/actions/userActions'
+import { userLogout } from '../../redux/actions/userActions'
 import { SearchBar } from 'react-native-elements'
 import { bindActionCreators } from 'redux'
 import { connect } from "react-redux"
+import {searchUsers} from '../../redux/actions/searchActions'
 
 
 class Search extends React.Component {
@@ -57,7 +58,7 @@ class Search extends React.Component {
         <View style={{alignSelf: "center", marginTop: 50, marginBottom: 50}}>
           <Image
           style={styles.logo}
-          source={require('../assets/images/logo.png')}
+          source={require('../../assets/images/logo.png')}
           />
 
         </View>
@@ -109,7 +110,8 @@ class Search extends React.Component {
     }, dispatch)
 
     const mapStateToProps = state => ({
-      isGuest: state.users.isGuest
+      isGuest: state.users.isGuest,
+      searchResults: state.search.searchResults
     })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search)
