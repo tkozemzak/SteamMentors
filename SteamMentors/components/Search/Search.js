@@ -36,7 +36,6 @@ class Search extends React.Component {
   }
 
   render(){
-    //console.log('lkdfjal;ksjdflksdjf=====', this.props.navigation);
     return (
       <ImageBackground
       style={{
@@ -47,7 +46,7 @@ class Search extends React.Component {
         }}
         source={require("../../assets/images/gradient.jpeg")}
       >
-      { this.props.isGuest ?
+      { !this.props.isGuest ?
 <View style={{padding: 10}}>
 <TextInput
     style={styles.textInput}
@@ -64,7 +63,7 @@ class Search extends React.Component {
     <Button color="#58ab7f" title="Search" onPress={() => this.handleSearch()}/>
       </View>
   <ScrollView style={{ backgroundColor: "transparent", width: "100%", height: "80%"}}>
-    <List containerStyle={{marginBottom: 20, backgroundColor: "transparent"}}>
+    <List containerStyle={{marginBottom: 20, backgroundColor: "transparent", marginTop: 20}}>
     {this.props.searchResults ? this.props.searchResults.map((item, idx) => (
       <SearchCard
       key={idx}
@@ -102,8 +101,7 @@ class Search extends React.Component {
       button: {
         width: "70%",
         alignSelf: "center",
-        marginTop: 15,
-        marginBottom: 15
+        marginTop: 14
       },
       logo: {
         width: 400,

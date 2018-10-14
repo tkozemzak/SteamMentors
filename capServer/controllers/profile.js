@@ -45,6 +45,11 @@ module.exports = {
           })
         })
     })
+  },
+  fetchMessages: function(req, res){
+    knex("mentor_request").where("mentor_id", req.params.id).then((results)=>{
+      res.json(results)
+    })
   }
 
 }

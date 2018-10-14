@@ -1,5 +1,6 @@
 import {
-  SEARCH_USERS
+  SEARCH_USERS,
+  SEND_MESSAGE
 } from '../actions/searchActions'
 
 let initialState = {
@@ -13,8 +14,10 @@ export default (state = initialState, action) => {
           ...state,
           searchResults: action.payload
         }
-
-
+      case SEND_MESSAGE:
+        return{
+          ...state
+        }
     default:
       return state;
   }

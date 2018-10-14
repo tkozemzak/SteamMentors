@@ -17,6 +17,12 @@ module.exports = {
         res.send(finalArr)
       })
     })
+  },
+  message: function(req, res) {
+console.log("req.body", req.body);
+    knex.insert(req.body).into("mentor_request").then(()=>{
+      res.json("Sent!")
+    })
   }
 
 }

@@ -12,10 +12,7 @@ exports.up = function(knex, Promise) {
       .onDelete("CASCADE")
       .index();
     table.integer("game_id")
-      .references("id")
-      .inTable("game")
-      .onDelete("CASCADE")
-      .index();
+      
     table.string("content")
     table.timestamps(true, true);
 

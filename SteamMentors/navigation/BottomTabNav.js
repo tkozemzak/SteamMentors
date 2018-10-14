@@ -30,6 +30,7 @@ const SearchStack = createStackNavigator({
     screen: SendMessage,
   navigationOptions: () => ({
       title: `SendMessage`,
+      header: null
     }),
   },
 });

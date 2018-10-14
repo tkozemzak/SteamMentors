@@ -13,8 +13,9 @@ import {
 
 let initialState = {
   currentUser: {},
+  loggedInUser: {},
   isLoggedIn: false,
-  isGuest: true,
+  isGuest: false,
   isLoading: false,
   showLoginError: false,
   showSignupError: false
@@ -40,7 +41,7 @@ export default (state = initialState, action) => {
       return {...state, isLoading: true}
     case USER_LOGIN_SUCCESS:
     console.log("success");
-      return {...state, isLoading: false, isLoggedIn: true, currentUser: {...action.payload}}
+      return {...state, isLoading: false, isLoggedIn: true, currentUser: {...action.payload}, loggedInUser: {...action.payload.data}}
     case USER_LOGIN_FAILED:
     console.log("fail");
       return {...state, isLoading: false, showLoginError: true}

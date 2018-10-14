@@ -89,7 +89,7 @@ class HomeScreen extends React.Component {
         source={require('../../assets/images/gradient.jpeg')}
         style={{height: '100%'}}>
 
-            <View style={{alignSelf: "center", marginTop: 60, marginLeft: 20, marginRight: 20}}>
+            <View style={styles.container}>
             <View style={{alignSelf: "center"}} >
                     <Animated.View
                       style={{
@@ -99,14 +99,14 @@ class HomeScreen extends React.Component {
                         width: 80,
                       }}>
                       <Image
-                      style={{width: 80, height: 80}}
+                      style={styles.image}
                       source={require('../../assets/images/spinnerLogo.png')}
                     />
                     </Animated.View>
               </View>
-              <View style={{marginTop: 10, width: "90%"}}>
+              <View style={styles.textContainer}>
 
-              <Text style={{fontSize: 34, color: "#3098C8", alignSelf: "center"}}>Steam Mentors</Text>
+              <Text style={styles.text}>Steam Mentors</Text>
 
             </View>
 
@@ -197,6 +197,12 @@ class HomeScreen extends React.Component {
 
   const styles = StyleSheet.create(
 {
+  container: {
+    alignSelf: "center",
+    marginTop: 60,
+    marginLeft: 20,
+    marginRight: 20
+  },
   button: {
     width: "70%",
     alignSelf: "center",
@@ -204,7 +210,8 @@ class HomeScreen extends React.Component {
   },
   textInput: {
     height: 70,
-    color: "white"
+    color: "white",
+    paddingLeft: 15
 
   },
   buttonContainer: {
@@ -213,6 +220,21 @@ class HomeScreen extends React.Component {
     display: "flex",
     flexDirection: "row",
     marginTop: "70%"
+  },
+  textContainer: {
+    marginTop: 30,
+    width: "90%"
+  },
+  text: {
+    fontSize: 34,
+    color: "#3098C8",
+    alignSelf: "center"
+  },
+  image: {
+    alignSelf: "center",
+    marginTop: 60,
+    marginLeft: 20,
+    marginRight: 20
   }
 });
 const mapStateToProps = state => ({

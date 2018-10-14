@@ -27,6 +27,7 @@ clickCard = (url) => {
       <TouchableHighlight onPress={() => this.clickCard(this.props.item.url)} style={styles.TouchableHighlight}>
       <ImageBackground
       style={styles.cardImage}
+      imageStyle={{ borderRadius: 25 }}
         source={{ uri: `https://steamcdn-a.akamaihd.net/steam/apps/${this.props.item.appid}/header.jpg?t=1539261069` }}
         >
         <View style={{padding: 10}}>
@@ -44,15 +45,18 @@ clickCard = (url) => {
 
       text: {
         fontSize: 20,
-        color: "white"
-
+        color: "white",
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: {width: 3, height: 3},
+        textShadowRadius: 10
       },
+
       TouchableHighlight: {
         flex: 1,
         alignSelf: "center",
         height: 150,
         backgroundColor: "transparent",
-        marginBottom: 15,
+        marginTop: 15,
       },
       cardImage: {
         flex: 1,

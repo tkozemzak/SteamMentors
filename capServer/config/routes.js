@@ -23,6 +23,9 @@ app.post('/register', register.register)
   //search
   app.post("/search", search.searchUsers)
 
+  //message
+  app.post("/message", search.message)
+  app.get("/message/:id", profile.fetchMessages)
 }
 
 // function authenticateUser(req, res, next) {

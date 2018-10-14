@@ -3,7 +3,8 @@ import {
   ScrollView,
   TouchableHighlight,
   View,
-  ImageBackground
+  ImageBackground,
+  StyleSheet
 } from 'react-native'
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
@@ -30,21 +31,15 @@ let newsStories = newsObj ? newsObj.appnews.newsitems : null;
 
     return (
       <ImageBackground
-      style={{
-          flex: 1,
-          width: "100%",
-          height: "100%",
-          justifyContent: 'center',
-          marginTop: 20
-        }}
+      style={styles.background}
         source={require("../../assets/images/gradient.jpeg")}
       >
 
         <Header backgroundColor={"transparent"}
           centerComponent={{ text: "News", style: { color: '#fff', fontSize: 30 } }}
         />
-        <ScrollView style={{ backgroundColor: "transparent", width: "80%", height: "100%", alignSelf: "center"}}>
-          <List containerStyle={{marginBottom: 10, backgroundColor: "transparent"}}>
+        <ScrollView style={styles.scrollView}>
+          <List containerStyle={styles.list}>
           {newsStories ? newsStories.map((item) => (
             <NewsCard
             key={item.gid}
@@ -59,6 +54,26 @@ let newsStories = newsObj ? newsObj.appnews.newsitems : null;
   }
   }
 
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    justifyContent: 'center',
+    marginTop: 20
+  },
+  scrollView: {
+    backgroundColor: "transparent",
+    width: "100%",
+    height: "100%",
+    alignSelf: "center"
+  },
+  list: {
+    marginBottom: 10,
+    backgroundColor: "transparent"
+  }
+
+})
 
 const mapDispatchToProps = dispatch => bindActionCreators({
 fetchUserNews,

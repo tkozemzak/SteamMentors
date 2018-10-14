@@ -1,5 +1,6 @@
 import axios from 'axios'
 const BASE_URL = 'http://10.2.83.224:8000'
+// const BASE_URL = 'http://192.168.1.9:8000'
 
 export const FETCH_USERS = "FETCH_USERS"
 export const USER_LOGOUT = "USER_LOGOUT"
