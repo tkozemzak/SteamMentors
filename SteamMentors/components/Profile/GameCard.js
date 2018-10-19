@@ -19,7 +19,7 @@ clickCard = (url) => {
 
   render(){
     return (
-      <TouchableHighlight onPress={() => this.clickCard(this.props.item.url)} style={styles.TouchableHighlight>
+      <TouchableHighlight onPress={() => this.clickCard(this.props.item.url)} style={styles.TouchableHighlight}>
       <ImageBackground
       imageStyle={{ borderRadius: 25 }}
       style={styles.background}

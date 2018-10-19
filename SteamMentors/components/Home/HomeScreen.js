@@ -232,7 +232,6 @@ class HomeScreen extends React.Component {
   },
   image: {
     alignSelf: "center",
-    marginTop: 60,
     marginLeft: 20,
     marginRight: 20
   }
