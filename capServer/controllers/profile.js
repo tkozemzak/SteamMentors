@@ -6,6 +6,7 @@ module.exports = {
 
   games: function(req, res) {
     axios.get(`http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${key}&steamid=${req.params.id}`).then((results)=>{
+      console.log('results of getownedgames', results.data);
       let gamesOnSteam = results.data.response.games ? results.data.response.games.map((item)=>{
         return item.appid
       }) : null
@@ -39,6 +40,7 @@ module.exports = {
                     res.json(results)
                   })
                 }) : knex("game").where("user_id", currentUser).then((results)=>{
+                  console.log('final results', results);
                   res.json(results)
                 })
 

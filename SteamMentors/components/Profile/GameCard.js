@@ -22,7 +22,7 @@ clickCard = (url) => {
       <TouchableHighlight onPress={() => this.clickCard(this.props.item.url)} style={styles.TouchableHighlight}>
       <ImageBackground
       imageStyle={{ borderRadius: 25 }}
-      style={styles.background}
+      style={styles.cardImage}
         source={{ uri: "https://previews.123rf.com/images/kasto/kasto1702/kasto170200053/72096795-pictur-perfect-tropical-anse-patates-beach-on-la-digue-island-seychelles-summer-vacations-on-picture.jpg" }}
         >
       <Text style={styles.text}>{this.props.item.appid}</Text>
@@ -34,25 +34,26 @@ clickCard = (url) => {
     }
 
 const styles = StyleSheet.create({
-  background: {
-      backgroundColor: '#ccc',
-      flex: 1,
-      width: 300,
-      height: "100%",
-      justifyContent: 'center',
-    },
-  TouchableHighlight: {
-    borderColor: "red",
-    flex: 1,
-    padding: 30,
-    alignSelf: "center",
-    backgroundColor: "#11162a",
-    maxHeight: 200,
-    marginTop: -1
-  },
   text: {
-    color: "white"
-  }
+    fontSize: 20,
+    color: "white",
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: {width: 3, height: 3},
+    textShadowRadius: 10
+  },
+
+  TouchableHighlight: {
+    flex: 1,
+    alignSelf: "center",
+    height: 150,
+    marginTop: 15,
+  },
+  cardImage: {
+    flex: 1,
+    width: 300,
+    height: "100%",
+    justifyContent: 'flex-start'
+    }
 })
     const mapStateToProps = state => ({
     })

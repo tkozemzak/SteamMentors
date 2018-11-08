@@ -1,8 +1,7 @@
+
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
   return knex('game').del()
     .then(function() {
-      // Inserts seed entries
       return knex('game').insert([{
           steam_app_id: '640820',
           user_id: '1',

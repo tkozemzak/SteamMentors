@@ -95,8 +95,8 @@ class HomeScreen extends React.Component {
                       style={{
                         transform: [{ rotate: spin }],
                         position: 'relative',
-                        height: 80,
-                        width: 80,
+                        height: 68,
+                        width: 68,
                       }}>
                       <Image
                       style={styles.image}

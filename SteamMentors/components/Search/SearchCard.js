@@ -20,7 +20,7 @@ class SearchCard extends React.Component {
 let steamid = this.props.item.steamid
     return (
   <TouchableHighlight onPress={() => {this.props.navigation.navigate("UserPage", {steamid: steamid, personaname: this.props.item.personaname, avatar: this.props.item.avatarfull, goBack: this.props.navigation.goBack})}
-} style={{width: '85%', height: 150, flex: 1, paddingTop: 25, paddingLeft: 10, alignSelf: "center", backgroundColor: "#11162a", marginTop: 15, borderRadius: 25}}>
+} style={{width: '85%', height: 150, flex: 1, paddingTop: 25, paddingLeft: 10, alignSelf: "center", backgroundColor: "rgba(0, 0, 0, 0.1)", marginTop: 15, borderRadius: 25}}>
         <View style={{flexDirection: "row", flex: 1}}>
         <View>
         <Image

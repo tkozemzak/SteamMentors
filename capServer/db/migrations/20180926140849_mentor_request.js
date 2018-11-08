@@ -5,14 +5,16 @@ exports.up = function(knex, Promise) {
       .references("id")
       .inTable("user")
       .onDelete("CASCADE")
+      .onUpdate("CASCADE")
       .index();
     table.integer("mentee_id")
       .references("id")
       .inTable("user")
       .onDelete("CASCADE")
+      .onUpdate("CASCADE")
       .index();
     table.integer("game_id")
-      
+
     table.string("content")
     table.timestamps(true, true);
 

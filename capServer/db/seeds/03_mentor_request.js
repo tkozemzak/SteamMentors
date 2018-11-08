@@ -1,8 +1,6 @@
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
   return knex('mentor_request').del()
     .then(function() {
-      // Inserts seed entries
       return knex('mentor_request').insert([{
           mentor_id: '1',
           mentee_id: '2',

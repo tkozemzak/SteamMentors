@@ -37,7 +37,7 @@ clickCard = (url) => {
       flex: 1,
       padding: 30,
       alignSelf: "center",
-      backgroundColor: "#11162a",
+      backgroundColor: "transparent",
       maxHeight: 200,
       marginTop: -1
     },

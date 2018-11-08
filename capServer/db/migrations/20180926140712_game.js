@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
       .references("id")
       .inTable("user")
       .onDelete("CASCADE")
+      .onUpdate("CASCADE")
       .index();
     table.boolean("is_mentor");
     table.timestamps(true, true);

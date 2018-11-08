@@ -36,7 +36,7 @@ import { withRouter } from 'react-router-native'
   }
   render(){
     let {history} = this.props
-
+console.log('currentusergames', this.props.currentUserGames);
     return (
       <ImageBackground
       style={styles.background}
@@ -65,18 +65,18 @@ import { withRouter } from 'react-router-native'
             <Button color="#58ab7f" title="Requests" onPress={() => this.setState({screen: "requests"})}/>
           </View>
         </View>
-        {this.state.screen === "games" ? <ScrollView >
-          <List >
-            {this.props.currentMessages ? this.props.currentMessages.map((l) => (
+        {this.state.screen === "games" ? <ScrollView style={styles.scrollView}>
+          <List containerStyle={styles.list}>
+            {this.props.currentUserGames ? this.props.currentUserGames.map((l, idx) => (
               <GameCard
-              key={l.appid}
+              key={idx}
               item={l}
               />
             )) : null
             }
           </List>
-        </ScrollView> : <ScrollView >
-          <List >
+        </ScrollView> : <ScrollView style={styles.scrollView}>
+          <List containerStyle={styles.list}>
             {this.props.currentMessages ? this.props.currentMessages.map((l) => (
               <MessageCard
               key={l.id}
@@ -96,8 +96,15 @@ import { withRouter } from 'react-router-native'
 
     const styles = StyleSheet.create({
       background: {
+        flex: 1,
         width: "100%",
         height: "100%",
+      },
+      scrollView: {
+        backgroundColor: "transparent",
+        width: "100%",
+        height: "100%",
+        alignSelf: "center"
       },
       leftButton: {
         width: "40%",
@@ -113,6 +120,10 @@ import { withRouter } from 'react-router-native'
         width: 400,
         height: 200,
         resizeMode: "cover"
+      },
+      list: {
+        marginBottom: 10,
+        backgroundColor: "transparent"
       }
     });
 
